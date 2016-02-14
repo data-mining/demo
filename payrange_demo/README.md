@@ -30,8 +30,8 @@ Real-time Analysis of Event Streams :
 ## Development
 
 ### Schema Design
-Note : this is just a Demo so Data Models generated just for demonstration purpose.
-More detailed discussion available in this document.
+
+Note : this is just a Demo sofollowing Data Models generated just for demonstration purpose.
 
 var UserPaymentsSchema = new Schema({
     timestamp: {type: Date},
