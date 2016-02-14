@@ -1,5 +1,10 @@
 # Real-time Data Analytics
 
+Note :  
+detailed system architecture discussion :  https://github.com/data-mining/demo/blob/master/payrange_demo/docs/PayRange_Architecture_Discussion.pdf
+
+demo screenshots : https://github.com/data-mining/demo/blob/master/payrange_demo/docs/Demo.pdf 
+
 ## Objective
 
 Real-time Analysis of Event Streams :
