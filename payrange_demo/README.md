@@ -7,13 +7,27 @@ demo screenshots : https://github.com/data-mining/demo/blob/master/payrange_demo
 
 ## Objective
 
-Real-time Analysis of Event Streams :
+Real-time Analysis of data streams :
 
 ['Jan 01, 2016', "V1","Hari","Sunnyvale","Popcorn",1, 100],
 ['Jan 02, 2016', "V2","Bob","Sunnyvale","ChocoBar",1, 100],
 ['Jan 03, 2016', "V1","Hari","Santa Clara","Biscuit",.75, 50],
 ['Jan 04, 2016', "V1","Ram","Sunnyvale","ChocoBar",.5, 90],
 ['Jan 05, 2016', "V2","Kal","Fremont","Chips",.5, 90],
+
+=> data streams are ingested via simulator
+=> features are extracted 
+=> messages are sent to queue
+=> data sent to UI via Websocket and displayed in real-time in UI
+=> raw data persisted in primary store (payrangedetails)
+=> all aggregate collections (usersummary, productsummary, vendingmachinesummary) are updated with latest stats  (in parallel)
+=> now as user clicks a Message in UI
+=> Server quickly looks-up pre-calculated  'Total Sales of Vending Machine' and displayed in UI
+=> UI also shows how the Vending Machine performs over a time period  (time-series data)
+
+## Scope
+
+This Nodejs app only focuses on Data Analytics, not on Transactions on User Account. the balance updates need to be done by a thread-safe , consistent , transactional context.
 
 ## Enviroement Setup
 ### checkout from github
@@ -190,3 +204,7 @@ after some time when we fire the same query
 { "totalSales" : 2.5, "vendingmachine" : "V5" }
 { "totalSales" : 1.5, "vendingmachine" : "V9" }
 { "totalSales" : 1.5, "vendingmachine" : "V10" }
+
+## Scope of Improvement :
+### Use Hapi as the robust backend Nodejs server
+### Use Test Cases
