@@ -1,4 +1,4 @@
-# Real-time Analytics
+# Real-time Data Analytics
 
 ## Objective
 
