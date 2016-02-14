@@ -13,9 +13,7 @@ dbModule = require('./server/db.js');
 var queueModule= require('./server/queue.js');
 var streamingModule = require('./server/streaming.js');
 
-
 var app = express();
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -35,30 +33,21 @@ if ('development' == app.get('env')) {
 var httpServer = http.createServer(app).listen(app.get('port'), function(){
 	  console.log('Express server listening on port ' + app.get('port'));
 	});
-
 var io  = require("socket.io").listen(httpServer);
 var payRangeEventSender;
-
 ////////////////////////
-
 queueModule.listenForIncomingMessages(io);
-
 /////////////////////////////////
-
 app.get("/", function(req, resp) {
     resp.render("home", {
        pageTitle: "Pay Range Data Analytics"
     });
 });
-
 /////////////////////////////////////
-
 app.get("/vendingmachinesummary/:name", function(req, resp) {
 	dbModule.findVendingMachineSummary(req.params.name, resp);
 });
-
 /////////////////////////////////
-
 app.get("/productstats/:name", function(req, resp) {
 	dbModule.findProductStats(req.params.name, resp);
 });
